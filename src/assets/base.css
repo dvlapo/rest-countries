@@ -1,0 +1,47 @@
+/* color palette */
+:root {
+   --white: hsl(0, 0%, 100%);
+   --light-mode-bg: hsl(0, 0%, 98%);
+   --input: hsl(0, 0%, 52%);
+   --light-mode-text: hsl(200, 80%, 22%);
+   --dark-mode-bg: hsl(207, 26%, 17%);
+   --dark-mode-elements: hsl(209, 23%, 22%);
+}
+
+/* semantic color variables for this project */
+:root {
+   --color-text: var(--light-mode-text);
+   --color-bg: var(--light-mode-bg);
+   --color-input: var(--input);
+   --color-elements: var(--white);
+}
+
+:root.dark-theme {
+   --color-text: var(--white);
+   --color-bg: var(--dark-mode-bg);
+   --color-input: var(--white);
+   --color-elements: var(--dark-mode-elements);
+}
+
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   min-height: 100vh;
+   font-family: 'Nunito Sans', sans-serif;
+   font-size: 14px;
+   text-rendering: optimizeLegibility;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   background-color: var(--color-bg);
+}
+
+input,
+button {
+   font-family: inherit;
+}
