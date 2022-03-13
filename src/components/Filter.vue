@@ -73,7 +73,6 @@ export default {
 }
 
 .regions-list {
-   list-style: none;
    cursor: pointer;
    transition: 100ms;
 }

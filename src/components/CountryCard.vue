@@ -1,27 +1,31 @@
 <template>
    <section class="country-card">
-      <div class="flag">
-         <img :src="flag" :alt="`flag of ${countryName}`" />
-      </div>
+      <router-link to="/details">
+         <div class="flag">
+            <img :src="flag" :alt="`flag of ${countryName}`" />
+         </div>
 
-      <article>
-         <h1>{{ countryName }}</h1>
-         <ul>
-            <li>
-               Population: <span>{{ population }}</span>
-            </li>
-            <li>
-               Region: <span>{{ region }}</span>
-            </li>
-            <li>
-               Capital: <span>{{ capital }}</span>
-            </li>
-         </ul>
-      </article>
+         <article>
+            <h1>{{ countryName }}</h1>
+            <ul>
+               <li>
+                  Population: <span>{{ population }}</span>
+               </li>
+               <li>
+                  Region: <span>{{ region }}</span>
+               </li>
+               <li>
+                  Capital: <span>{{ capital }}</span>
+               </li>
+            </ul>
+         </article>
+      </router-link>
    </section>
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
    data() {
       return {};
@@ -74,7 +78,7 @@ export default {
 
 .country-card ul {
    list-style-type: none;
-   /* margin-bottom: 2rem; */
+   
 }
 
 .country-card li {

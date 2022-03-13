@@ -1,7 +1,6 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router';
 import Header from './components/Header.vue';
-import Main from './views/Main.vue';
 
 export default {
    data() {
@@ -11,7 +10,6 @@ export default {
    },
    components: {
       Header,
-      Main,
    },
    mounted() {
       const initUserTheme = this.getMediaPreference();
@@ -54,7 +52,7 @@ export default {
 <template>
    <div :class="{ 'dark-theme': userTheme === 'dark-theme' }">
       <Header @toggle-theme="toggleTheme" />
-      <Main />
+      <router-view />
    </div>
 </template>
 
