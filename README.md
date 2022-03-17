@@ -47,4 +47,4 @@ Users should be able to:
 
 -  Website - [dvlapo](https://dvlapo.netlify.app)
 -  Frontend Mentor - [@dvlapo](https://www.frontendmentor.io/profile/dvlapo)
--  Twitter - [@dvlao](https://www.twitter.com/dvlapo)
+-  Twitter - [@dvlapo](https://www.twitter.com/dvlapo)
