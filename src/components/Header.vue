@@ -2,16 +2,14 @@
    <header>
       <h1>where in the world?</h1>
       <button @click="$emit('toggle-theme')">
-         <span><ion-icon name="moon-outline"></ion-icon></span>
+         <ion-icon name="moon-outline"></ion-icon>
          dark mode
       </button>
    </header>
 </template>
 
 <script>
-export default {
-   methods: {},
-};
+export default {};
 </script>
 
 <style scoped>
