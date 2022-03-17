@@ -1,9 +1,9 @@
 <template>
    <main>
-      <section class="flex">
+      <div class="flex">
          <Search @search="search" />
          <Filter @filter-by-region="filterByRegion" />
-      </section>
+      </div>
 
       <div class="cards-grid" v-if="!loading">
          <CountryCard

@@ -1,5 +1,5 @@
 <template>
-   <section class="container">
+   <div class="container">
       <a @click="$router.go(-1)" class="back-btn"
          ><ion-icon name="arrow-back-sharp"></ion-icon> back</a
       >
@@ -64,7 +64,7 @@
             </div>
          </article>
       </div>
-   </section>
+   </div>
 </template>
 
 <script>
