@@ -136,7 +136,7 @@ export default {
 
 <style scoped>
 .container {
-   padding-inline: 5vw;
+   padding-inline: 6vw;
    padding-block: max(5vw, 2.5rem);
    color: var(--color-text);
 }

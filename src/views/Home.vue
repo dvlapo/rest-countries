@@ -73,7 +73,7 @@ export default {
 
 <style scoped>
 main {
-   padding-inline: 5vw;
+   padding-inline: 6vw;
    padding-block: max(3vw, 1.4rem);
    margin-inline: auto;
    background-color: var(--color-bg);

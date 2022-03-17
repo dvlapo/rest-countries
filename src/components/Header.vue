@@ -16,7 +16,7 @@ export default {
 
 <style scoped>
 header {
-   padding-inline: 5vw;
+   padding-inline: 6vw;
    padding-block: 1em;
    margin-inline: auto;
    background-color: var(--color-elements);
