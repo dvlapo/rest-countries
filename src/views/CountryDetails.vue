@@ -1,7 +1,7 @@
 <template>
    <section class="container">
       <a @click="$router.go(-1)" class="back-btn"
-         ><ion-icon name="arrow-back-sharp"></ion-icon> Back</a
+         ><ion-icon name="arrow-back-sharp"></ion-icon> back</a
       >
       <div class="flex">
          <div class="flag-holder">
@@ -142,6 +142,7 @@ export default {
 }
 
 .container .back-btn {
+   text-transform: capitalize;
    background-color: var(--color-elements);
    padding: 0.4em 1.8em;
    border-radius: 0.2em;
