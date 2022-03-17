@@ -4,6 +4,7 @@
       <input
          type="text"
          placeholder="Search for a country..."
+         aria-label="Search for a country..."
          v-model="searchQuery"
          @input="$emit('search', searchQuery)"
       />

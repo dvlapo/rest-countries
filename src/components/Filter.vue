@@ -1,12 +1,12 @@
 <template>
    <div class="filter-container">
-      <div class="filter" @click="toggleOpenFilter">
+      <button class="filter" aria-expanded="false" @click="toggleOpenFilter">
          <p>Filter by Region</p>
          <ion-icon name="chevron-down-outline"></ion-icon>
-      </div>
+      </button>
       <div v-if="openFilterOptions" class="options">
          <ul v-for="region in regions" :key="region" class="regions-list">
-            <li @click="$emit('filter-by-region', region.name)">
+            <li role="button" @click="$emit('filter-by-region', region.name)">
                {{ region.name }}
             </li>
          </ul>
@@ -48,6 +48,7 @@ export default {
    gap: 2rem;
    background: var(--color-elements);
    padding: 1em 1.4em;
+   border: none;
    border-radius: 0.4em;
    width: min(50vw, 12rem);
    font-weight: 600;

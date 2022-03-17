@@ -5,7 +5,7 @@
          <Filter @filter-by-region="filterByRegion" />
       </section>
 
-      <div class="cards-grid">
+      <div class="cards-grid" v-if="!loading">
          <CountryCard
             v-for="country in allCountries"
             :key="country.alpha3code"
@@ -16,17 +16,21 @@
             :capital="country.capital"
          />
       </div>
+      <div class="loading" v-else>
+         Doing a quick sprint around world... &#9992;
+      </div>
    </main>
 </template>
 
 <script>
-import Search from '../components/Search.vue';
-import Filter from '../components/Filter.vue';
-import CountryCard from '../components/CountryCard.vue';
+import Search from '@/components/Search.vue';
+import Filter from '@/components/Filter.vue';
+import CountryCard from '@/components/CountryCard.vue';
 
 export default {
    data() {
       return {
+         loading: true,
          allCountries: [],
          countriesToFilter: [],
       };
@@ -44,6 +48,7 @@ export default {
          fetch('https://restcountries.com/v2/all')
             .then((response) => response.json())
             .then((data) => {
+               this.loading = false;
                this.allCountries = data;
                this.countriesToFilter = data;
             })
@@ -82,9 +87,15 @@ main {
    margin-bottom: max(3vw, 1.4rem);
 }
 
+.loading {
+   color: white;
+   font-size: clamp(1.1rem, 4.8vw - 1rem, 2rem);
+   text-align: center;
+   margin-top: 4rem;
+}
 .cards-grid {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr));
+   grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
    gap: 4rem;
 }
 </style>

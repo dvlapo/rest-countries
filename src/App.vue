@@ -1,5 +1,4 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router';
 import Header from './components/Header.vue';
 
 export default {
@@ -52,7 +51,7 @@ export default {
 <template>
    <div :class="{ 'dark-theme': userTheme === 'dark-theme' }">
       <Header @toggle-theme="toggleTheme" />
-      <router-view />
+      <RouterView />
    </div>
 </template>
 

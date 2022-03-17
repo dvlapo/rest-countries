@@ -1,6 +1,6 @@
 <template>
    <section class="country-card">
-      <router-link to="/details">
+      <RouterLink :to="{ name: 'countrydetails', params: { id: countryName } }">
          <div class="flag">
             <img :src="flag" :alt="`flag of ${countryName}`" />
          </div>
@@ -19,13 +19,11 @@
                </li>
             </ul>
          </article>
-      </router-link>
+      </RouterLink>
    </section>
 </template>
 
 <script>
-import { RouterLink } from 'vue-router';
-
 export default {
    data() {
       return {};
@@ -40,18 +38,14 @@ export default {
    color: var(--color-text);
    background: var(--color-elements);
    border-radius: 0.4em;
-   overflow: hidden;
+   overflow: clip;
    cursor: pointer;
    transition: 50ms;
    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-.country-card:hover {
-   transform: translateY(-2px);
-}
-
 .country-card:hover img {
-   filter: grayscale(1);
+   filter: grayscale(0.8);
 }
 
 .country-card .flag {
@@ -78,7 +72,6 @@ export default {
 
 .country-card ul {
    list-style-type: none;
-   
 }
 
 .country-card li {
