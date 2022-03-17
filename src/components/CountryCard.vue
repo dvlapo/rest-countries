@@ -1,12 +1,12 @@
 <template>
-   <section class="country-card">
+   <div class="country-card">
       <RouterLink :to="{ name: 'countrydetails', params: { id: countryName } }">
          <div class="flag">
             <img :src="flag" :alt="`flag of ${countryName}`" />
          </div>
 
          <article>
-            <h1>{{ countryName }}</h1>
+            <h2>{{ countryName }}</h2>
             <ul>
                <li>
                   Population: <span>{{ population }}</span>
@@ -20,7 +20,7 @@
             </ul>
          </article>
       </RouterLink>
-   </section>
+   </div>
 </template>
 
 <script>
@@ -65,7 +65,7 @@ export default {
    padding-top: 1.8em;
 }
 
-.country-card article h1 {
+.country-card article h2 {
    margin-bottom: 0.6rem;
    font-size: clamp(0.9rem, 0.5vw + 0.6rem, 1.1rem);
 }

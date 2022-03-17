@@ -1,7 +1,7 @@
 <template>
    <div class="filter-container">
       <button class="filter" aria-expanded="false" @click="toggleOpenFilter">
-         <p>Filter by Region</p>
+         Filter by Region
          <ion-icon name="chevron-down-outline"></ion-icon>
       </button>
       <div v-if="openFilterOptions" class="options">
