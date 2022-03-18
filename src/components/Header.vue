@@ -28,7 +28,7 @@ header {
 
 header h1 {
    font-weight: 800;
-   font-size: clamp(1rem, 4.8vw - 1.1rem, 1.9rem);
+   font-size: clamp(1.1rem, 5.9vw - 1.5rem, 2.2rem);
 }
 
 header h1::first-letter {

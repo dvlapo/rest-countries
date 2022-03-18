@@ -46,6 +46,7 @@ export default {
    outline: none;
    background: transparent;
    color: var(--color-input);
+   font-weight: 600;
    width: 100%;
 }
 </style>

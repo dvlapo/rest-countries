@@ -56,9 +56,13 @@ export default {
       },
       filterByRegion(region) {
          this.allCountries = this.countriesToFilter;
-         this.allCountries = this.allCountries.filter((country) => {
-            return country.region === region;
-         });
+         if (region === 'All') {
+            return this.allCountries;
+         } else {
+            this.allCountries = this.allCountries.filter((country) => {
+               return country.region === region;
+            });
+         }
       },
       search(query) {
          this.allCountries = this.countriesToFilter;
@@ -95,7 +99,7 @@ main {
 }
 .cards-grid {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+   grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
    gap: 4rem;
 }
 </style>

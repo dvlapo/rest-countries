@@ -2,7 +2,11 @@
    <div class="filter-container">
       <button class="filter" aria-expanded="false" @click="toggleOpenFilter">
          Filter by Region
-         <ion-icon name="chevron-down-outline"></ion-icon>
+         <ion-icon
+            name="chevron-up-outline"
+            v-if="openFilterOptions"
+         ></ion-icon>
+         <ion-icon name="chevron-down-outline" v-else></ion-icon>
       </button>
       <div v-if="openFilterOptions" class="options">
          <ul v-for="region in regions" :key="region" class="regions-list">
@@ -20,11 +24,12 @@ export default {
       return {
          openFilterOptions: false,
          regions: [
-            { id: 1, name: 'Africa' },
-            { id: 2, name: 'Americas' },
-            { id: 3, name: 'Asia' },
-            { id: 4, name: 'Europe' },
-            { id: 5, name: 'Oceania' },
+            { id: 1, name: 'All' },
+            { id: 2, name: 'Africa' },
+            { id: 3, name: 'Americas' },
+            { id: 4, name: 'Asia' },
+            { id: 5, name: 'Europe' },
+            { id: 6, name: 'Oceania' },
          ],
       };
    },
