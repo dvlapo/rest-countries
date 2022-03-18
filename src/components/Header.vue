@@ -15,7 +15,7 @@ export default {};
 <style scoped>
 header {
    padding-inline: 6vw;
-   padding-block: 1em;
+   padding-block: max(1.1em, 2vw);
    margin-inline: auto;
    background-color: var(--color-elements);
    display: flex;
