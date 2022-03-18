@@ -52,7 +52,7 @@ export default {
    align-items: center;
    gap: 2rem;
    background: var(--color-elements);
-   padding: 1em 1.4em;
+   padding: 1.2em 1.4em;
    border: none;
    border-radius: 0.4em;
    width: min(50vw, 12rem);

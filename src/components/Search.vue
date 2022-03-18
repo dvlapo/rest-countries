@@ -27,7 +27,7 @@ export default {
    display: inline-flex;
    gap: 1rem;
    background: var(--color-elements);
-   padding: 1em 1.4em;
+   padding: 1.2em 1.4em;
    border-radius: 0.4em;
    width: min(90vw, 25rem);
    font-weight: 600;
