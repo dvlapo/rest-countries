@@ -52,13 +52,13 @@
             <div class="flex-links">
                <p>Border Countries:</p>
                <div class="links" v-if="borders">
-                  <button
-                     @click="getDetailsByCode(border)"
-                     v-for="border in borders"
+                  <RouterLink
+                     :to="{ name: 'countrydetails', params: { id: border } }"
+                     v-for="border in borderCountriesNames"
                      :key="border"
                   >
                      {{ border }}
-                  </button>
+                  </RouterLink>
                </div>
                <div v-else>Nil.</div>
             </div>
@@ -83,14 +83,27 @@ export default {
          tld: '',
          currencies: '',
          borders: [],
+         borderCountriesNames: [],
          languages: [],
       };
    },
    created() {
-      this.getCountryDetails();
+      this.$watch(
+         () => this.$route.params,
+         () => {
+            this.getCountryDetails();
+         },
+         { immediate: true }
+      );
+   },
+   watch: {
+      borders() {
+         this.getCountryBorderNames();
+      },
    },
    methods: {
       getCountryDetails() {
+         this.borders = [];
          fetch(`https://restcountries.com/v3.1/name/${this.$route.params.id}`)
             .then((response) => response.json())
             .then((data) => {
@@ -110,25 +123,17 @@ export default {
             })
             .catch((err) => console.log(err));
       },
-      getDetailsByCode(code) {
-         fetch(`https://restcountries.com/v3.1/alpha/${code}`)
-            .then((response) => response.json())
-            .then((data) => {
-               this.sourceData = data[0];
-               this.countryDetails = this.sourceData;
-               this.countryName = this.countryDetails.name.common;
-               this.flagSrc = this.countryDetails.flags.svg;
-               this.nativeName = this.countryDetails.name.nativeName;
-               this.population = this.countryDetails.population;
-               this.region = this.countryDetails.region;
-               this.subRegion = this.countryDetails.subregion;
-               this.capital = this.countryDetails.capital[0];
-               this.tld = this.countryDetails.tld[0];
-               this.currencies = this.countryDetails.currencies;
-               this.languages = this.countryDetails.languages;
-               this.borders = this.countryDetails.borders;
-            })
-            .catch((err) => console.log(err));
+      getCountryBorderNames() {
+         this.borderCountriesNames = [];
+         this.borders.map((borderCode) => {
+            fetch(`https://restcountries.com/v3.1/alpha/${borderCode}`)
+               .then((response) => response.json())
+               .then((data) => {
+                  let countryName = data[0].name.common;
+                  this.borderCountriesNames.push(countryName);
+               })
+               .catch((err) => console.log(err));
+         });
       },
    },
 };
@@ -230,7 +235,7 @@ export default {
    flex-wrap: wrap;
 }
 
-.flex-links button {
+.flex-links a {
    border: none;
    cursor: pointer;
    background-color: var(--color-elements);
