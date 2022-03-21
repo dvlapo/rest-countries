@@ -1,15 +1,57 @@
 <template>
    <header>
       <h1>where in the world?</h1>
-      <button @click="$emit('toggle-theme')">
-         <ion-icon name="moon-outline"></ion-icon>
+      <button
+         @click="
+            $emit('toggle-theme');
+            toggleTheme();
+         "
+         v-if="darkMode"
+      >
+         <ion-icon name="sunny-outline"></ion-icon>
+         light mode
+      </button>
+      <button
+         @click="
+            $emit('toggle-theme');
+            toggleTheme();
+         "
+         v-else
+      >
+         <ion-icon name="moon"></ion-icon>
          dark mode
       </button>
    </header>
 </template>
 
 <script>
-export default {};
+export default {
+   data() {
+      return {
+         darkMode: false,
+         activeTheme: localStorage.getItem('user-theme'),
+      };
+   },
+   mounted() {
+      this.getMediaPreference();
+   },
+
+   methods: {
+      toggleTheme() {
+         this.darkMode = !this.darkMode;
+      },
+      getMediaPreference() {
+         const hasDarkPreference = window.matchMedia(
+            '(prefers-color-scheme: dark)'
+         ).matches;
+         if (hasDarkPreference) {
+            this.darkMode = true;
+         } else {
+            this.darkMode = false;
+         }
+      },
+   },
+};
 </script>
 
 <style scoped>
