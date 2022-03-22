@@ -92,7 +92,7 @@ main {
 }
 
 .loading {
-   color: white;
+   color: var(--color-text);
    font-size: clamp(1.1rem, 4.8vw - 1rem, 2rem);
    text-align: center;
    margin-top: 4rem;

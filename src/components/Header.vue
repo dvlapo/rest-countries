@@ -65,7 +65,9 @@ header {
    align-items: center;
    color: var(--color-text);
    box-shadow: rgba(0, 0, 0, 0.16) 0px -4px 10px 1px;
-   position: relative;
+   position: sticky;
+   top: 0;
+   z-index: 4;
 }
 
 header h1 {
