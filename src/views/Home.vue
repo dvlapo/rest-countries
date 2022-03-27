@@ -19,6 +19,10 @@
       <div class="loading" v-else>
          Doing a quick sprint around world... &#9992;
       </div>
+      <div class="loading" v-show="notFound">
+         This country doesn't exist on planet Earth &#129488;. Kindly check
+         Mars.
+      </div>
    </main>
 </template>
 
@@ -33,6 +37,7 @@ export default {
          loading: true,
          allCountries: [],
          countriesToFilter: [],
+         notFound: false,
       };
    },
    created() {
@@ -68,7 +73,11 @@ export default {
          this.allCountries = this.countriesToFilter;
          this.allCountries = this.allCountries.filter((country) => {
             let formatedQuery = query.charAt(0).toUpperCase() + query.slice(1);
-            return country.name.includes(formatedQuery);
+            if (country.name.includes(formatedQuery)) {
+               return country.name.includes(formatedQuery);
+            } else {
+               this.notFound = true;
+            }
          });
       },
    },
